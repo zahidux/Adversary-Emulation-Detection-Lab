@@ -33,7 +33,7 @@ The Kali Linux VM was configured in VMware Workstation Pro with 4 GB RAM, 2 CPU 
 
 Splunk Enterprise version 10.4.0 was downloaded from the official Splunk website and installed on the Kali Linux VM.
 
-![Splunk Enterprise Login](screenshots/03-splunk-enterprise-install.png)
+![Splunk Enterprise Login](Lab%20Screenshot/splunkstrat.png)
 
 ### Splunk Receiving Configuration
 
