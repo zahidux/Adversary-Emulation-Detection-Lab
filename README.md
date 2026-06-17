@@ -27,7 +27,7 @@ The lab runs entirely on an isolated, host-only VM network. Kali Linux acts as t
 
 The Kali Linux VM was configured in VMware Workstation Pro with 4 GB RAM, 2 CPU cores, and a NAT network adapter — giving it internet access while keeping it isolated from the host network.
 
-![Network Diagram](Lab%20Screenshot/kali-vmware-config.png)
+![Network Diagram](Lab%20Screenshot/kali%20vmware%20config.png)
 
 ### Splunk Enterprise Deployment
 
