@@ -97,76 +97,42 @@ Five MITRE ATT&CK techniques were emulated with Atomic Red Team, then hunted for
 
 ### Attack 1 — T1053.005 (Persistence) | Scheduled Task
 
-`Invoke-AtomicTest T1053.005` created several malicious scheduled tasks (`T1053_005_OnLogon`, `T1053_005_OnStartup`) via `schtasks.exe`.
+The Atomic Red Team test for T1053.005 was executed using the command Invoke-AtomicTest T1053.005, which created several malicious scheduled tasks including T1053_005_OnLogon and T1053_005_OnStartup using schtasks.exe. 
 
 ![Scheduled Task Execution](Lab%20Screenshot/T1053.005%20Persistence%20Scheduled%20Task.png)
 
-**Detection:** Scheduled task creation behavior was hunted in Sysmon logs by searching for `schtasks.exe`, Task Scheduler, `Schedule.Service`, and hidden scheduled task activity — common persistence indicators.
-
-```spl
-index=main sourcetype="WinEventLog"
-EventCode=1
-Image="*\\schtasks.exe"
-CommandLine="*/create*"
-| table _time, Image, CommandLine, User, ComputerName
-| sort -_time
-```
 
 ### Attack 2 — T1218.005 (Defense Evasion) | MSHTA
 
-`Invoke-AtomicTest T1218.005` launched `mshta.exe` to execute malicious HTA (HTML Application) files and remote scripts via JavaScript/VBScript engines.
+The T1218.005 atomic test was executed using Invoke-AtomicTest T1218.005, which launched mshta.exe to execute malicious HTA (HTML Application) files and remote scripts via JavaScript and VBScript engines. 
 
-![Scheduled Task Cleanup Commands](screenshots/12-attack-t1053-cleanup.png)
+![Scheduled Task Cleanup Commands](Lab%20Screenshot/T1218.005%20(Defense%20Evasion).png)
 
-**Detection:** Hunted for suspicious `mshta.exe` execution, HTA file launches, and script-related command-line activity.
-
-```spl
-index=main sourcetype="WinEventLog"
-EventCode=1
-Image="*\\mshta.exe"
-| table _time, Image, CommandLine, ParentImage, User, ComputerName
-| sort -_time
-```
 
 ### Attack 3 — T1003.001 (Credential Access) | LSASS Dumping
 
-Simulated credential dumping by accessing LSASS (Local Security Authority Subsystem Service) process memory, using tools such as Mimikatz/ProcDump — a common technique since LSASS stores authentication material in memory.
+The T1003.001 atomic test was executed to simulate credential dumping by accessing the LSASS (Local Security Authority Subsystem Service) process memory using tools such as Mimikatz. 
 
-![MSHTA / HTA Execution](screenshots/13-attack-t1218-mshta.png)
+![MSHTA / HTA Execution](Lab%20Screenshot/T1003.001%20(Credential%20Access).png)
 
-**Detection:** Searched for process-access events targeting `lsass.exe`.
-
-```spl
-index=main sourcetype="WinEventLog"
-EventCode=10
-TargetImage="*\\lsass.exe"
-| table _time, SourceImage, TargetImage, GrantedAccess, CallTrace, User, ComputerName
-| sort -_time
-```
 
 ### Attack 4 — T1059.001 (Execution) | PowerShell Download
 
-Simulated a PowerShell-based download-and-execute attack, fetching and running remote scripts via `Invoke-WebRequest`, `DownloadString`, and `IEX`.
+The T1059.001 atomic test simulated a PowerShell-based download and execution attack where PowerShell was used to fetch and run scripts from remote sources using Invoke-WebRequest, DownloadString, and IEX commands.
 
-![Atomic Red Team Prerequisites](screenshots/14-attack-t1003-prereqs.png)
+![Atomic Red Team Prerequisites](Lab%20Screenshot/T1059001%20Execution%20PowerShell%20Download.png)
 
-**Detection:** Hunted for PowerShell command-line activity involving remote content retrieval and in-memory script execution.
-
-```spl
-index=main sourcetype="WinEventLog"
-EventCode=1
-Image="*\\powershell.exe"
-(CommandLine="*DownloadString*" OR CommandLine="*IEX*"
- OR CommandLine="*WebClient*" OR CommandLine="*DownloadFile*")
-| table _time, Image, CommandLine, ParentImage, User, ComputerName
-| sort -_time
-```
 
 ### Attack 5 — T1112 (Defense Evasion) | Registry Modification
 
-Simulated registry modification attacks where Windows Defender and other security configurations were disabled via `reg.exe` and PowerShell registry edits.
+The T1112 atomic test simulated registry modification attacks where Windows Defender and other security configurations were disabled by modifying registry keys using reg.exe and PowerShell. 
 
-![Registry Modification Test](screenshots/15-attack-t1112-registry.png)
+![Registry Modification Test](Lab%20Screenshot/T1112 Defense%20Evasion%20Registry%20Modification.png)
+
+
+
+
+
 
 **Detection:** Hunted for registry value changes related to Windows Defender — notification settings and tamper-protection-style modifications — from Sysmon Event ID 13 (RegistryEvent: value set).
 
