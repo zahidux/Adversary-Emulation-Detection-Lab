@@ -65,6 +65,12 @@ Sysmon64.exe -accepteula -i sysmonconfig.xml
 
 ![Sysmon Start](Lab%20Screenshot/Sysmonstart.png)
 
+
+### Sysmon Dashboard
+
+![Sysmon Dashboard](Lab%20Screenshot/splunkdasboard.png)
+
+
 ### Sysmon Event Viewer log Check
 
 Event Viewer was used to confirm Sysmon was actively logging operational events (process creation, network connections, file creation, etc.):
