@@ -131,6 +131,7 @@ The T1112 atomic test simulated registry modification attacks where Windows Defe
 
 
 
+## Detection  (Blue Team)
 
 Detection 1: T1053.005 (Persistence) | Scheduled Task
 After executing the Atomic Red Team test for T1053.005, I started the blue team detection phase in Splunk. The goal of this detection was to identify scheduled task creation behavior from Windows Sysmon logs.
@@ -138,7 +139,7 @@ This attack was detected by searching for Task Scheduler-related activity, espec
 
 SPL Query
 
-![T1053.005 (Persistence) ](screenshots/16-blueteam-t1112-detection.png)
+![T1053.005 (Persistence) ](Lab%20Screenshot/1.png)
 
 
 Detection 2: T1218.005 (Defense Evasion) | MSHTA
@@ -146,29 +147,29 @@ After executing the Atomic Red Team test for T1218.005, I searched Splunk for su
 
 SPL Query
 
-![T1053.005 (Persistence) ](screenshots/16-blueteam-t1112-detection.png)
+![T1218.005 (Defense Evasion) ](Lab%20Screenshot/2.png)
 
 
 3: T1003.001 (Credential Access) | LSASS Dumping
 After executing the Atomic Red Team test for T1003.001, I searched Splunk for LSASS dumping behavior. This test used ProcDump to dump the memory of lsass.exe. Since LSASS stores authentication-related information in memory, attackers commonly target it for credential access.
 
-
-
-
 SPL Query
+
+![T1003.001 (Credential Access) ](Lab%20Screenshot/3.png)
+
 4: T1059.001 (Execution) | PowerShell
 After executing the Atomic Red Team test for T1059.001, I searched Splunk for suspicious PowerShell execution. The goal of this detection was to identify PowerShell command-line activity involving MSXML, remote content retrieval, and script execution.
 
 SPL Query
+
+![T1059.001 (Execution) ](Lab%20Screenshot/4.png)
+
 5: T1112 (Defense Evasion) | Registry Modification
 After executing the Atomic Red Team tests for T1112, I searched Splunk for registry modification and Windows Defender related configuration changes. The goal of this detection was to identify registry value changes, Defender notification changes, and tamper protection modification attempts from Sysmon logs.
 
-Conclusion
-This lab successfully demonstrated the deployment and operation of a Security Operations Center (SOC) monitoring environment using Splunk Enterprise, Sysmon, Splunk Universal Forwarder, and Atomic Red Team.
-The exercise provided valuable practical experience in adversary emulation, security log analysis, SPL query writing, and building detection rules in a real SIEM environment, closely reflecting the skills required in a professional SOC analyst role.
+SPL Query
 
-
-
+![ T1112 (Defense Evasion) ](Lab%20Screenshot/5.png)
 
 
 
@@ -177,28 +178,4 @@ The exercise provided valuable practical experience in adversary emulation, secu
 
 This lab successfully demonstrated the deployment and operation of a Security Operations Center (SOC) monitoring environment using Splunk Enterprise, Sysmon, Splunk Universal Forwarder, and Atomic Red Team.
 
-The exercise provided hands-on experience in adversary emulation, security log analysis, SPL query writing, and building detection rules in a real SIEM environment — closely reflecting the skills required in a professional SOC analyst role.
-
-## Repository Structure
-
-```
-.
-├── README.md
-└── screenshots/
-    ├── 01-lab-architecture.png
-    ├── 02-kali-vm-config.png
-    ├── 03-splunk-enterprise-install.png
-    ├── 04-splunk-search-page.png
-    ├── 05-splunk-receiving-port.png
-    ├── 06-winserver-vm-config.png
-    ├── 07-sysmon-files.png
-    ├── 08-sysmon-install-start.png
-    ├── 09-sysmon-eventviewer.png
-    ├── 10-splunk-uf-download.png
-    ├── 11-attack-t1053-execution.png
-    ├── 12-attack-t1053-cleanup.png
-    ├── 13-attack-t1218-mshta.png
-    ├── 14-attack-t1003-prereqs.png
-    ├── 15-attack-t1112-registry.png
-    └── 16-blueteam-t1112-detection.png
-```
+The exercise provided hands-on experience in adversary emulation, security log analysis, SPL query writing, and building detection rules in a real SIEM environment closely reflecting the skills required in a professional SOC analyst role.
