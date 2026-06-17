@@ -91,7 +91,7 @@ Import-Module Invoke-AtomicRedTeam
 
 
 
-## Attack Simulation and Detection (Red Team / Blue Team)
+## Attack Simulation (Red Team)
 
 Five MITRE ATT&CK techniques were emulated with Atomic Red Team, then hunted for in Splunk using Sysmon telemetry.
 
@@ -127,7 +127,7 @@ The T1059.001 atomic test simulated a PowerShell-based download and execution at
 
 The T1112 atomic test simulated registry modification attacks where Windows Defender and other security configurations were disabled by modifying registry keys using reg.exe and PowerShell. 
 
-![Registry Modification Test](Lab%20Screenshot/T1112 Defense%20Evasion%20Registry%20Modification.png)
+![Registry Modification Test](Lab%20Screenshot/T1112%20Defense%20Evasion%20Registry%20Modification.png)
 
 
 
