@@ -89,6 +89,8 @@ Import-Module Invoke-AtomicRedTeam
 
 ![AtomicTest](Lab%20Screenshot/AtomicTest.png)
 
+
+
 ## Attack Simulation and Detection (Red Team / Blue Team)
 
 Five MITRE ATT&CK techniques were emulated with Atomic Red Team, then hunted for in Splunk using Sysmon telemetry.
@@ -97,7 +99,7 @@ Five MITRE ATT&CK techniques were emulated with Atomic Red Team, then hunted for
 
 `Invoke-AtomicTest T1053.005` created several malicious scheduled tasks (`T1053_005_OnLogon`, `T1053_005_OnStartup`) via `schtasks.exe`.
 
-![Scheduled Task Execution](screenshots/11-attack-t1053-execution.png)
+![Scheduled Task Execution](Lab%20Screenshot/T1053.005%20Persistence%20Scheduled%20Task.png)
 
 **Detection:** Scheduled task creation behavior was hunted in Sysmon logs by searching for `schtasks.exe`, Task Scheduler, `Schedule.Service`, and hidden scheduled task activity — common persistence indicators.
 
