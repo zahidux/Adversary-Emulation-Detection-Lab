@@ -21,7 +21,7 @@ This project demonstrates the deployment of a Security Operations Center (SOC) l
 
 The objective was to capture comprehensive Windows endpoint telemetry, forward it to Splunk Enterprise, execute MITRE ATT&CK-aligned adversary simulations with Atomic Red Team, and validate detection coverage using Sysmon-generated events and custom SPL queries.
 
-## Lab Environment Setup
+## Lab Environment Setup https://github.com/zahidux/Adversary-Emulation-Detection-Lab/blob/main/sysmonconfig.png
 
 (https://github.com/zahidux/Adversary-Emulation-Detection-Lab/blob/main/1.png)
 
