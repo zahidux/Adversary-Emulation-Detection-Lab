@@ -132,24 +132,46 @@ The T1112 atomic test simulated registry modification attacks where Windows Defe
 
 
 
+Detection 1: T1053.005 (Persistence) | Scheduled Task
+After executing the Atomic Red Team test for T1053.005, I started the blue team detection phase in Splunk. The goal of this detection was to identify scheduled task creation behavior from Windows Sysmon logs.
+This attack was detected by searching for Task Scheduler-related activity, especially schtasks.exe, Task Scheduler, Schedule.Service, and hidden scheduled task behavior. These indicators are useful because attackers commonly use scheduled tasks to maintain persistence on a compromised Windows system.
+
+SPL Query
+
+![T1053.005 (Persistence) ](screenshots/16-blueteam-t1112-detection.png)
 
 
-**Detection:** Hunted for registry value changes related to Windows Defender — notification settings and tamper-protection-style modifications — from Sysmon Event ID 13 (RegistryEvent: value set).
+Detection 2: T1218.005 (Defense Evasion) | MSHTA
+After executing the Atomic Red Team test for T1218.005, I searched Splunk for suspicious MSHTA execution. The detection focused on mshta.exe, HTA file execution, and script-related command-line activity.
 
-![T1112 Detection in Splunk](screenshots/16-blueteam-t1112-detection.png)
+SPL Query
 
-```spl
-index=main sourcetype="WinEventLog"
-EventCode=13
-TargetObject="*\\Windows Defender*"
-(TargetObject="*DisableAntiSpyware*"
- OR TargetObject="*DisableRealtimeMonitoring*"
- OR TargetObject="*DisableBehaviorMonitoring*")
-| table _time, Image, TargetObject, Details, User, ComputerName
-| sort -_time
-```
+![T1053.005 (Persistence) ](screenshots/16-blueteam-t1112-detection.png)
 
----
+
+3: T1003.001 (Credential Access) | LSASS Dumping
+After executing the Atomic Red Team test for T1003.001, I searched Splunk for LSASS dumping behavior. This test used ProcDump to dump the memory of lsass.exe. Since LSASS stores authentication-related information in memory, attackers commonly target it for credential access.
+
+
+
+
+SPL Query
+4: T1059.001 (Execution) | PowerShell
+After executing the Atomic Red Team test for T1059.001, I searched Splunk for suspicious PowerShell execution. The goal of this detection was to identify PowerShell command-line activity involving MSXML, remote content retrieval, and script execution.
+
+SPL Query
+5: T1112 (Defense Evasion) | Registry Modification
+After executing the Atomic Red Team tests for T1112, I searched Splunk for registry modification and Windows Defender related configuration changes. The goal of this detection was to identify registry value changes, Defender notification changes, and tamper protection modification attempts from Sysmon logs.
+
+Conclusion
+This lab successfully demonstrated the deployment and operation of a Security Operations Center (SOC) monitoring environment using Splunk Enterprise, Sysmon, Splunk Universal Forwarder, and Atomic Red Team.
+The exercise provided valuable practical experience in adversary emulation, security log analysis, SPL query writing, and building detection rules in a real SIEM environment, closely reflecting the skills required in a professional SOC analyst role.
+
+
+
+
+
+
 
 ## Conclusion
 
