@@ -18,7 +18,7 @@ The objective was to capture comprehensive Windows endpoint telemetry, forward i
 
 ## Lab Environment Setup 
 
-![Network Diagram](Lab Screenshot/Screenshot 2026-06-12 013019.png)
+[![Network Diagram](Lab Screenshot/Screenshot 2026-06-12 013019.png)](https://github.com/zahidux/Adversary-Emulation-Detection-Lab/blob/main/Lab%20Screenshot/Screenshot%202026-06-12%20013019.png)
 
 
 The lab runs entirely on an isolated, host-only VM network. Kali Linux acts as the control and SIEM node (Splunk indexer/search head + Atomic Red Team attacker), while the Windows Server 2019 VM is the victim/telemetry endpoint running Sysmon and the Splunk Universal Forwarder, sending logs back to the indexer over port 9997.
