@@ -1,6 +1,4 @@
 Aewdversary Emulation & Detection Lab Report
-Adversary-Emulation-Detection-Lab
-
 
 ---
 
@@ -8,18 +6,19 @@ Adversary-Emulation-Detection-Lab
 
 This project demonstrates the deployment of a Security Operations Center (SOC) lab environment built with the following stack:
 
-- **Kali Linux** – SIEM server
-- **Splunk Enterprise** – centralized log collection and analysis
-- **Windows Server 2019** – target endpoint
-- **Sysmon** – detailed Windows event logging
-- **Splunk Universal Forwarder** – log forwarding from the endpoint to the SIEM
-- **Atomic Red Team** – adversary behavior simulation mapped to MITRE ATT&CK
+- Kali Linux – serving as the SIEM server
+- Splunk Enterprise – for centralized log collection and analysis
+- Windows Server 2019 – as the target endpoint environment
+- Sysmon – for detailed Windows event logging
+- Splunk Universal Forwarder – for log forwarding from endpoints
+- Atomic Red Team–to simulate adversary behaviors based on the MITRE ATT & CK framework
+
 
 The objective was to capture comprehensive Windows endpoint telemetry, forward it to Splunk Enterprise, execute MITRE ATT&CK-aligned adversary simulations with Atomic Red Team, and validate detection coverage using Sysmon-generated events and custom SPL queries.
 
-## Lab Environment Setup https://github.com/zahidux/Adversary-Emulation-Detection-Lab/blob/main/sysmonconfig.png
+## Lab Environment Setup 
 
-![Network Diagram](Lab%20Screenshot/1.png)
+![Network Diagram](Lab%20Screenshot/Screenshot 2026-06-12 013019.png)
 
 The lab runs entirely on an isolated, host-only VM network. Kali Linux acts as the control and SIEM node (Splunk indexer/search head + Atomic Red Team attacker), while the Windows Server 2019 VM is the victim/telemetry endpoint running Sysmon and the Splunk Universal Forwarder, sending logs back to the indexer over port 9997.
 
