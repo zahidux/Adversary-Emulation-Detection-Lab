@@ -35,15 +35,15 @@ Splunk Enterprise version 10.4.0 was downloaded from the official Splunk website
 
 ![Splunk Enterprise Login](Lab%20Screenshot/splunkstrat.png)
 
-### Splunk Receiving Configuration
-
-Splunk was configured to receive log data from the Windows Server forwarder by navigating to Settings > Forwarding and Receiving and adding a new receiving port. Port 9997 was configured as the listening port.
+### Splunk Search Page 
 
 ![Splunk Receiving Configuration](Lab%20Screenshot/splunksearchboard.png)
 
-| Splunk Search Page | Receiving Port Configured |
-|---|---|
-| ![Splunk Search](screenshots/04-splunk-search-page.png) | ![Splunk Receiving Port](screenshots/05-splunk-receiving-port.png) |
+### Receiving Port Configured 
+
+Splunk was configured to receive log data from the Windows Server forwarder by navigating to Settings > Forwarding and Receiving and adding a new receiving port. Port 9997 was configured as the listening port.
+
+![Splunk Receiving Configuration](Lab%20Screenshot/splunk%20recevingport.png)
 
 ### Windows Server 2019 Preparation
 
