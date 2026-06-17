@@ -47,17 +47,18 @@ Splunk was configured to receive log data from the Windows Server forwarder by n
 
 ### Windows Server 2019 Preparation
 
-The Windows Server 2019 VM was set up in VMware Workstation with 4 GB RAM, 2 CPU cores, 60 GB disk space, and NAT networking matching the Kali VM's network segment.
+The Windows Server 2019 VM was set up in VMware Workstation with 4 GB RAM, 2 CPU cores, 60 GB disk space, and NAT networking to match the Kali VM's network segment.
 
-![Windows Server 2019 VM Configuration](screenshots/06-winserver-vm-config.png)
+![Windows Server 2019 VM Configuration](Lab%20Screenshot/windows%20server%20config.png)
 
 ### Sysmon Configuration and Installation
 
-Sysmon was downloaded from the Microsoft Sysinternals website and installed on the Windows Server 2019 VM using a custom configuration file from SwiftOnSecurity:
+Sysmon was downloaded from the Microsoft Sysinternals website and installed on the Windows Server 2019 VM using the command Sysmon64.exe -accepteula -i sysmonconfig.xml with a custom configuration file from SwiftOnSecurity. 
 
 ```powershell
 Sysmon64.exe -accepteula -i sysmonconfig.xml
 ```
+![Sysmon Configuration and Installation](Lab%20Screenshot/sysmonconfig.png)
 
 | Sysmon Package | Sysmon Service Started |
 |---|---|
