@@ -65,9 +65,11 @@ Sysmon64.exe -accepteula -i sysmonconfig.xml
 
 ![Sysmon Start](Lab%20Screenshot/Sysmonstart.png)
 
+### Sysmon Event Viewer log Check
+
 Event Viewer was used to confirm Sysmon was actively logging operational events (process creation, network connections, file creation, etc.):
 
-![Sysmon Event Viewer Log Check](screenshots/09-sysmon-eventviewer.png)
+![Sysmon Event Viewer Log Check](Lab%20Screenshot/SysmonEventViewerlogcheck.png)
 
 ### Splunk Universal Forwarder Setup
 
