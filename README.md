@@ -172,7 +172,21 @@ SPL Query
 ![ T1112 (Defense Evasion) ](Lab%20Screenshot/5.png)
 
 
+### Key Skills Demonstrated
+This project demonstrates practical hands-on experience in both red team emulation and blue team detection engineering. The lab covered the complete workflow of building a small SOC-style detection environment, generating realistic attacker-like activity, collecting endpoint telemetry, and writing SPL queries to identify suspicious behavior.
 
+Key skills demonstrated in this project include:
+
+- Kali Linux based Splunk Enterprise deployment
+- Windows Server 2019 security monitoring
+- Splunk Universal Forwarder configuration
+- Sysmon installation and event collection
+- Windows Event Log forwarding
+- Custom Splunk index creation
+- Atomic Red Team adversary emulation
+- MITRE ATT&CK technique mapping
+- SPL query writing and field extraction
+- Detection of process creation, process access, registry modification, and suspicious command-line activity
 
 ## Conclusion
 
