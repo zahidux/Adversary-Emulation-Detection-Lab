@@ -73,21 +73,21 @@ Event Viewer was used to confirm Sysmon was actively logging operational events 
 
 ### Splunk Universal Forwarder Setup
 
-Splunk Universal Forwarder version 10.4.0 was downloaded and installed on the Windows Server 2019 VM to forward Sysmon logs to the Kali Linux SIEM.
+Splunk Universal Forwarder version 10.4.0 was downloaded from the Splunk website and installed on the Windows Server 2019 VM to forward Sysmon logs to the Kali Linux SIEM. 
 
-![Splunk Universal Forwarder Download](screenshots/10-splunk-uf-download.png)
+![Splunk Universal Forwarder Download](Lab%20Screenshot/splunkforwader.png)
+
 
 ### Atomic Red Team Setup
 
-Atomic Red Team was installed on the Windows Server 2019 VM via the PowerShell installer:
+Atomic Red Team was installed on the Windows Server 2019 VM by running the PowerShell installer script with Set-ExecutionPolicy Bypass, followed by Install-AtomicRedTeam and Import-Module Invoke-AtomicRedTeam.
 
-```powershell
+
 Set-ExecutionPolicy Bypass
 Install-AtomicRedTeam
 Import-Module Invoke-AtomicRedTeam
-```
 
----
+![AtomicTest](Lab%20Screenshot/AtomicTest.png)
 
 ## Attack Simulation and Detection (Red Team / Blue Team)
 
