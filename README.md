@@ -1,10 +1,4 @@
-# Adversary Emulation & Detection Lab
-
-**University of Dhaka — Department of Computer Science and Engineering**
-Professional Masters in Information and Cyber Security (PMICS)
-Course: Information Security and Cryptography (CSE 802) | Batch 6th | Semester: January 2026
-
-**Author:** Zahid Hasan (ID: 60015, PMICS, Batch 6th)
+Adversary Emulation & Detection Lab Report
 
 ---
 
