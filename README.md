@@ -1,4 +1,4 @@
-Adversary Emulation & Detection Lab Report
+Aewdversary Emulation & Detection Lab Report
 
 ---
 
