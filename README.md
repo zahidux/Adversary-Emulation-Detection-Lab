@@ -60,9 +60,10 @@ Sysmon64.exe -accepteula -i sysmonconfig.xml
 ```
 ![Sysmon Configuration and Installation](Lab%20Screenshot/sysmonconfig.png)
 
-| Sysmon Package | Sysmon Service Started |
-|---|---|
-| ![Sysmon Files](screenshots/07-sysmon-files.png) | ![Sysmon Start](screenshots/08-sysmon-install-start.png) |
+
+### Sysmon Start
+
+![Sysmon Start](Lab%20Screenshot/Sysmonstart.png)
 
 Event Viewer was used to confirm Sysmon was actively logging operational events (process creation, network connections, file creation, etc.):
 
